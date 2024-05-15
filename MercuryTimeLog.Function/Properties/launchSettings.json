@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "MercuryTimeLog.Function": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7111"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "httpPort": 30520,
+      "useSSL": false
+    }
+  }
+}

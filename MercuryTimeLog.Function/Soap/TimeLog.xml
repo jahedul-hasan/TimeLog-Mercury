@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+		<GetContractsExtendedRaw xmlns="http://www.timelog.com/ws/tlp/v4_4">
+			<siteCode>ad7330a8d9d741afb8e1f138f90250d2</siteCode>
+			<apiID>TimeLog</apiID>
+			<apiPassword>Mercuri1960</apiPassword>
+			<customerID>0</customerID>
+			<projectID>0</projectID>
+			<contractModelType>0</contractModelType>
+			<lastModifiedSince>2024-04-02T12:19:47.003</lastModifiedSince>
+		</GetContractsExtendedRaw>
+	</soap:Body>
+</soap:Envelope>
