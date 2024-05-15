@@ -5,9 +5,9 @@ VisualStudioVersion = 17.9.34414.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MercuryTimeLog.API", "MercuryTimeLog.API\MercuryTimeLog.API.csproj", "{CA289F18-004D-4150-9362-B4135DD540D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercuryTimeLog.Function", "MercuryTimeLog.Function\MercuryTimeLog.Function.csproj", "{C7DD9AFA-A6D9-48EC-B65A-DD2C37035EB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MercuryTimeLog.Function", "MercuryTimeLog.Function\MercuryTimeLog.Function.csproj", "{C7DD9AFA-A6D9-48EC-B65A-DD2C37035EB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercuryTimeLog.Domain", "MercuryTimeLog.Domain\MercuryTimeLog.Domain.csproj", "{6DF3BBB4-D1FC-4FBE-8173-34A4012A3D2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MercuryTimeLog.Domain", "MercuryTimeLog.Domain\MercuryTimeLog.Domain.csproj", "{6DF3BBB4-D1FC-4FBE-8173-34A4012A3D2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
