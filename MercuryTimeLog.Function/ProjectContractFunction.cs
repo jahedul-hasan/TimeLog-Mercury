@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System.Xml.Linq;
 using Azure.Data.Tables;
+using Serilog;
 
 namespace MercuryTimeLog.Function;
 
@@ -41,7 +42,7 @@ public static class ProjectContractFunction
 			        <customerID>0</customerID>
 			        <projectID>0</projectID>
 			        <contractModelType>0</contractModelType>
-			        <lastModifiedSince>2024-04-02T12:19:47.003</lastModifiedSince>
+			        <lastModifiedSince>{previousDay}T11:19:47.003</lastModifiedSince>
 		        </GetContractsExtendedRaw>
 	        </soap:Body>
         </soap:Envelope>";
@@ -99,7 +100,7 @@ public static class ProjectContractFunction
         }
         catch (Exception exp)
         {
-            Console.WriteLine($"{exp.Message}");
+            Log.Error($"Project contracts not found!");
         }
         return Enumerable.Empty<ProjectContract>();
     }
