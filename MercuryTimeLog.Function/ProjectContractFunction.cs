@@ -10,7 +10,7 @@ using Azure.Data.Tables;
 
 namespace MercuryTimeLog.Function;
 
-public static class TimeLogFunction
+public static class ProjectContractFunction
 {
     [Function("StartProjectContractsSync")]
     public static async Task StartProjectContractsSync([TimerTrigger("*/1 * * * *")] TimerInfo myTimer)

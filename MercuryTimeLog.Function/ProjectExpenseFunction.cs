@@ -2,10 +2,6 @@ using Azure.Data.Tables;
 using MercuryTimeLog.Domain.Entities;
 using MercuryTimeLog.Function.Features.Models;
 using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Http;
-using Microsoft.DurableTask;
-using Microsoft.DurableTask.Client;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using RestSharp;
@@ -19,7 +15,7 @@ public static class ProjectExpenseFunction
 
     [Function("StartProjectExpenseSync")]
     public static async Task StartProjectExpenseSync([TimerTrigger("*/1 * * * *")] TimerInfo myTimer)
-    {
+     {
         var projectContracts = await GetProjectContractsAsync();
 
         await SaveProjectExpenseAsync(projectContracts.ToList());
@@ -137,6 +133,8 @@ public static class ProjectExpenseFunction
 
         var tableClient = tableServiceclient.GetTableClient(tableName);
 
+        await tableClient.CreateIfNotExistsAsync();
+
         var projectContracts = tableClient.Query<ProjectContract>().ToList();
 
         return projectContracts;
@@ -144,8 +142,6 @@ public static class ProjectExpenseFunction
 
     private static async Task _SaveProjectExpenseAsync(IList<ProjectExpense> projectExpenses)
     {
-        if (!projectExpenses.Any()) return;
-
         string connectionString = Environment.GetEnvironmentVariable("ConnectionString")!;
 
         string tableName = "ProjectExpense";
