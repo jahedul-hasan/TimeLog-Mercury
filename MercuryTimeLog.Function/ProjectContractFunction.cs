@@ -23,7 +23,8 @@ public static class ProjectContractFunction
 
     private static async Task<IEnumerable<ProjectContract>> PostProjectContractsAsync()
     {
-        string baseURL = "https://app5.timelog.com/mercurisandbox_specifications/service.asmx";
+        string baseURL = Environment.GetEnvironmentVariable("TimeLogSoapBaseURL")!;
+
         string basePath = Directory.GetParent(@"./")!.FullName;
         XNamespace instanceSpace = (XNamespace)"http://www.w3.org/2001/XMLSchema-instance";
         XNamespace schemaSpace = (XNamespace)"http://www.w3.org/2001/XMLSchema";

@@ -10,9 +10,6 @@ namespace MercuryTimeLog.Function;
 
 public static class ProjectExpenseFunction
 {
-    private const string baseURL = "https://app5.timelog.com/mercurisandbox/api/v1/";
-    private const string PatToken = "49066ACD09FD0662E89B287CB345028FA6009BB22C37BC2DA570ED83E3EC0AA3-1";
-
     [Function("StartProjectExpenseSync")]
     public static async Task StartProjectExpenseSync([TimerTrigger("*/1 * * * *")] TimerInfo myTimer)
      {
@@ -51,6 +48,8 @@ public static class ProjectExpenseFunction
                 SupplierInvoiceNo = "",
                 VatAmountExpenseCurrency = 1
             };
+            string PatToken = Environment.GetEnvironmentVariable("TimeLogRestPatToken");
+            string baseURL = Environment.GetEnvironmentVariable("TimeLogRestBaseURL")!;
             var serialize = JsonConvert.SerializeObject(command);
             var dateTime = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Utc);
             var url = $"{baseURL}project-expense?version=1";
@@ -82,6 +81,8 @@ public static class ProjectExpenseFunction
 
     private static async Task<int> GetProjectSubContractIdAsync(int projectId)
     {
+        string PatToken = Environment.GetEnvironmentVariable("TimeLogRestPatToken");
+        string baseURL = Environment.GetEnvironmentVariable("TimeLogRestBaseURL")!;
         var url = $"{baseURL}contract?version=1";
         var client = new RestClient(url);
         var request = new RestRequest();
